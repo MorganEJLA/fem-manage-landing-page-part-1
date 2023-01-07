@@ -4,8 +4,8 @@
 
   --clr-primary-400: hsl(228, 39%, 23%);
 
-  --clr-neutral-100: hsl(232, 12%, 13%);
-  --clr-neutral-900: hsl(0 0% 0%);
+  --clr-neutral-900: hsl(232, 12%, 13%);
+  --clr-neutral-100: hsl(0 0% 100%);
 
   --ff-primary: "Be Vietnam Pro", sans-serif;
 
@@ -29,6 +29,16 @@
   --fs-secondary-heading: var(--fs-700);
   --fs-nav: var(--fs-500);
   --fs-button: var(--fs-300);
+
+  --size-200: .25rem;
+  --size-300: .75rem;
+  --size-400:1rem;
+  --size-500: 1.5rem;
+  --size-600:2rem;
+  --size-700:3rem;
+  --size-800:4rem;
+  --size-900:5rem;
+  
 }
 
 @media (min-width: 50em) {
@@ -154,9 +164,11 @@ svg {
 
 .fs-primary-heading {
   font-size: var(--fs-primary-heading);
+  line-height:1.1;
 }
 .fs-secondary-heading {
   font-size: var(--fs-secondary-heading);
+  line-height:1.1;
 }
 
 .fs-300 {
@@ -170,4 +182,56 @@ svg {
 }
 .fs-600 {
   font-size: var(--fs-600);
+}
+.padding-block-900{
+  padding-block:var(--size-900);
+  /* spacing variables needed since the sizes are inconsistent between text blocks */
+}
+
+.padding-block-700{
+  padding-block:var(--size-700);
+}
+.container{
+  --max-width: 1110px;
+  --padding: 1rem;
+  /* this is actually margins */
+  /* custom properties are set up so its easier to read */
+  /* chose the smaller of whatever value we have , max width or 100% */
+  /* var padding is  added to prevent the items touching the sides as the screens get smaller * 2 is padding of 1rem on each side*/
+  width: min(var(--max-width), 100% - (var(--padding)*2));
+  margin-inline:auto;
+}
+
+
+.even-columns {
+  display:grid;
+  gap: 1rem;
+}
+
+@media(min-width: 50em){
+/* em keeps everything consistent between browsers instead of pixels */
+  .even-columns{
+    grid-auto-flow: column;
+    grid-auto-columns:1fr;
+  }
+}
+/* general styling */
+
+body{
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+
+}
+
+/* button */
+
+.button{
+  border:0;
+  border-radius:100vmax;
+  padding:1em 2.5em;
+  font-weight:var(--fw-bold);
+  font-size:var(--fs-button);
+  color:var(--clr-neutral-100);
+  background:var(--clr-accent-400);
 }
